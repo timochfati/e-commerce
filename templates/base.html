@@ -53,6 +53,21 @@
                 <a class="navbar-brand" href="/">Ecommerce</a>
 
             </div>
+            
+   
+    <div class="container">
+
+        <div class="display">
+
+            <form action="{% url 'search' %}" method="get">
+
+                <input type="text" name="q">
+
+                <button type="search">Search</button>
+
+            </form>
+
+        </div>
 
             <div id="navbar" class="navbar-collapse collapse">
 
@@ -66,7 +81,7 @@
 
                     {% else %}
 
-                    <li><a href="{% url 'registration' %}">Register</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
 
                     <li><a href="{% url 'login' %}">Log In</a></li>
 
@@ -95,6 +110,7 @@
         </div>
 
     </nav>
+  
 
     {% if messages %}
 
@@ -109,20 +125,8 @@
     </div>
 
     {% endif %}
+    
 
-    <div class="container">
-
-        <div class="display">
-
-            <form action="{% url 'search' %}" method="get">
-
-                <input type="text" name="q">
-
-                <button type="search">Search</button>
-
-            </form>
-
-        </div>
 
         {% block content %} {% endblock %}
 
