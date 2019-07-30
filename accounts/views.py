@@ -41,7 +41,8 @@ def logout(request):
 
 
 def login(request):
-
+    if request.user.is_authenticated:         
+        return redirect(reverse('index')) 
     """A view that manages the login form"""
 
     if request.method == 'POST':
@@ -86,7 +87,7 @@ def login(request):
 
     args = {'user_form': user_form, 'next': request.GET.get('next', '')}
 
-    return render(request, 'login.html', args)
+    return render(request, 'login.html', user_form)
 
 
 
